@@ -1,4 +1,9 @@
 #!/usr/bin/make -f
 
+export DH_GOLANG_GO_GENERATE := 1
+
 %:
-	dh $@
+	dh $@ --buildsystem=golang --builddirectory=_build
+
+override_dh_auto_install:
+	dh_auto_install -- --no-binaries

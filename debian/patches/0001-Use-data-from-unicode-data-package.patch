@@ -1,0 +1,50 @@
+From: Dmitry Smirnov <onlyjob@debian.org>
+Date: Mon, 25 Oct 2021 00:23:44 +0800
+Subject: Use data from unicode-data package
+
+Forwarded: not-needed
+---
+ script/generate.go | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/script/generate.go b/script/generate.go
+index cd7f923..51e107b 100644
+--- a/script/generate.go
++++ b/script/generate.go
+@@ -12,7 +12,7 @@ import (
+ 	"io"
+ 	"io/ioutil"
+ 	"log"
+-	"net/http"
++	"os"
+ 	"strings"
+ )
+ 
+@@ -179,21 +179,21 @@ func main() {
+ 
+ 	fmt.Fprint(f, "package runewidth\n\n")
+ 
+-	resp, err := http.Get("https://unicode.org/Public/13.0.0/ucd/EastAsianWidth.txt")
++	fEAW, err := os.Open("/usr/share/unicode/EastAsianWidth.txt")
+ 	if err != nil {
+ 		log.Fatal(err)
+ 	}
+-	defer resp.Body.Close()
++	defer fEAW.Close()
+ 
+-	eastasian(f, resp.Body)
++	eastasian(f, fEAW)
+ 
+-	resp, err = http.Get("https://unicode.org/Public/13.0.0/ucd/emoji/emoji-data.txt")
++	fED, err := os.Open("/usr/share/unicode/emoji/emoji-data.txt")
+ 	if err != nil {
+ 		log.Fatal(err)
+ 	}
+-	defer resp.Body.Close()
++	defer fED.Close()
+ 
+-	emoji(f, resp.Body)
++	emoji(f, fED)
+ 
+ 	out, err := format.Source(f.Bytes())
+ 	if err != nil {

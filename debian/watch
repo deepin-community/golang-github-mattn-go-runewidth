@@ -1,0 +1,5 @@
+# uscan(1) configuration file.
+version=4
+opts="filenamemangle=s%(?:.*?)?v?(\d[\d.]*)\.tar\.gz%golang-github-mattn-go-runewidth-$1.tar.gz%" \
+    https://github.com/mattn/go-runewidth/tags \
+    (?:.*?/)?v?(\d[\d.]*)\.tar\.gz debian
