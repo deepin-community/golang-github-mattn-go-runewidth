@@ -1,5 +1,111 @@
-template-repository (1.0-1) unstable; urgency=medium
+golang-github-mattn-go-runewidth (0.0.14-1) unstable; urgency=medium
 
-  * Initial release
+  * New upstream version 0.0.14
+  * Use dh-sequence-golang instead of dh-golang and --with=golang
+  * Drop -dev package’s unneeded dependency on ${shlibs:Depends}
+  * Bump Standards-Version to 4.6.2 (no change)
+  * debian/patches/0002-Update-test-for-unicode-15.0.0.patch
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Anthony Fok <foka@debian.org>  Wed, 25 Jan 2023 16:55:23 -0700
+
+golang-github-mattn-go-runewidth (0.0.13-3) unstable; urgency=medium
+
+  * Team upload.
+  * Fix building with unicode data 15.0.0 (Closes: #1020102)
+  * Update Standards-Version to 4.6.1 (no changes)
+
+ -- Shengjing Zhu <zhsj@debian.org>  Sat, 24 Sep 2022 21:35:13 +0800
+
+golang-github-mattn-go-runewidth (0.0.13-2) unstable; urgency=medium
+
+  * Team upload.
+  * Refresh patches for unicode data 14.0.0
+  * Bump unicode-data to 14.0.0 (Closes: #997701)
+
+ -- Shengjing Zhu <zhsj@debian.org>  Wed, 03 Nov 2021 01:03:46 +0800
+
+golang-github-mattn-go-runewidth (0.0.13-1) unstable; urgency=medium
+
+  [ Aloïs Micard ]
+  * Bump B-D.
+  * Bump Standards-Version.
+
+  [ Debian Janitor (Jelmer Vernooĳ) ]
+  * Apply multi-arch hints (Closes: #960525).
+    + golang-github-mattn-go-runewidth-dev: Add Multi-Arch: foreign.
+  * Remove constraints unnecessary since stretch:
+    + Build-Depends: Drop versioned constraint on dh-golang.
+
+  [ Anthony Fok ]
+  * New upstream version 0.0.13
+  * Change Section from devel to golang
+  * Bump Standards-Version to 4.6.0 (no change)
+  * Add dependency on golang-github-rivo-uniseg-dev as per go.mod
+  * debian/gbp.conf: Set debian-branch to debian/sid for DEP-14 conformance
+
+ -- Anthony Fok <foka@debian.org>  Sun, 05 Sep 2021 02:38:39 -0600
+
+golang-github-mattn-go-runewidth (0.0.9-1) unstable; urgency=medium
+
+  * Team Upload.
+  * New upstream version 0.0.9 (Closes: #954638)
+  * Refresh patches with new version
+  * Fix control and patch with cme
+  * Bump standards version to 4.5.0
+  * Add upstream/metadata
+
+ -- Nilesh Patra <npatra974@gmail.com>  Tue, 24 Mar 2020 17:04:07 +0530
+
+golang-github-mattn-go-runewidth (0.0.8-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Dmitry Smirnov <onlyjob@debian.org>  Sat, 25 Jan 2020 14:30:21 +1100
+
+golang-github-mattn-go-runewidth (0.0.7-1) unstable; urgency=medium
+
+  * New upstream release
+  * Build with "go generate"
+  * Standards-Version: 4.4.1
+  * DH to version 12
+  * Build-Depends += "unicode-data"
+
+ -- Dmitry Smirnov <onlyjob@debian.org>  Thu, 26 Dec 2019 06:35:35 +1100
+
+golang-github-mattn-go-runewidth (0.0.4-1) unstable; urgency=medium
+
+  [ Alexandre Viau ]
+  * Point Vcs-* urls to salsa.debian.org.
+
+  [ Anthony Fok ]
+  * New upstream version 0.0.4
+  * Add filenamemangle option in debian/watch
+  * Apply "cme fix dpkg" fixes to debian/control,
+    setting Priority to optional, bumping Standards-Version to 4.2.1, etc.
+  * Update Maintainer email address to team+pkg-go@tracker.debian.org
+  * Use debhelper (>= 11~)
+
+ -- Anthony Fok <foka@debian.org>  Thu, 20 Dec 2018 13:21:03 -0700
+
+golang-github-mattn-go-runewidth (0.0.2+git20170510.3.97311d9-1) unstable; urgency=medium
+
+  [ Paul Tagliamonte ]
+  * Use a secure transport for the Vcs-Git and Vcs-Browser URL
+
+  [ Anthony Fok ]
+  * New upstream snapshot 0.0.2+git20170510.3.97311d9
+  * Build-Depends on golang-any instead of golang-go
+    and remove unnecessary Depends on golang-go from -dev package
+  * Use debhelper (>= 10)
+  * Bump Standards-Version to 4.0.0:
+    Use https form of the copyright-format URL in debian/copyright
+  * Add "Testsuite: autopkgtest-pkg-go" to debian/control
+  * Add myself to the list of Uploaders
+
+ -- Anthony Fok <foka@debian.org>  Wed, 02 Aug 2017 22:58:10 -0600
+
+golang-github-mattn-go-runewidth (0.0.1-1) unstable; urgency=medium
+
+  * Initial release (Closes: #819056).
+
+ -- Dmitry Smirnov <onlyjob@debian.org>  Wed, 23 Mar 2016 21:24:24 +1100
