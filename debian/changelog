@@ -1,3 +1,18 @@
+golang-github-mattn-go-runewidth (0.0.15-2) unstable; urgency=medium
+
+  * Bump build-dependency: unicode-data (>= 15.1.0)
+    to avoid inadvertent autopkgtest failure with unicode-data 15.0.0-1
+
+ -- Anthony Fok <foka@debian.org>  Sun, 08 Oct 2023 02:19:49 -0600
+
+golang-github-mattn-go-runewidth (0.0.15-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 0.0.15
+  * Fix building with unicode data 15.1.0 (Closes: #1052819)
+
+ -- Felix Geyer <fgeyer@debian.org>  Wed, 04 Oct 2023 23:44:16 +0200
+
 golang-github-mattn-go-runewidth (0.0.14-1) unstable; urgency=medium
 
   * New upstream version 0.0.14
