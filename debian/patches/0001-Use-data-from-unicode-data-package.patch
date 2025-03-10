@@ -7,11 +7,9 @@ Forwarded: not-needed
  script/generate.go | 14 +++++++-------
  1 file changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/script/generate.go b/script/generate.go
-index cd7f923..51e107b 100644
 --- a/script/generate.go
 +++ b/script/generate.go
-@@ -12,7 +12,7 @@ import (
+@@ -13,7 +13,7 @@
  	"io"
  	"io/ioutil"
  	"log"
@@ -20,11 +18,11 @@ index cd7f923..51e107b 100644
  	"strings"
  )
  
-@@ -179,21 +179,21 @@ func main() {
+@@ -180,21 +180,21 @@
  
  	fmt.Fprint(f, "package runewidth\n\n")
  
--	resp, err := http.Get("https://unicode.org/Public/13.0.0/ucd/EastAsianWidth.txt")
+-	resp, err := http.Get("https://unicode.org/Public/15.1.0/ucd/EastAsianWidth.txt")
 +	fEAW, err := os.Open("/usr/share/unicode/EastAsianWidth.txt")
  	if err != nil {
  		log.Fatal(err)
@@ -35,7 +33,7 @@ index cd7f923..51e107b 100644
 -	eastasian(f, resp.Body)
 +	eastasian(f, fEAW)
  
--	resp, err = http.Get("https://unicode.org/Public/13.0.0/ucd/emoji/emoji-data.txt")
+-	resp, err = http.Get("https://unicode.org/Public/15.1.0/ucd/emoji/emoji-data.txt")
 +	fED, err := os.Open("/usr/share/unicode/emoji/emoji-data.txt")
  	if err != nil {
  		log.Fatal(err)
